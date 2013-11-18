@@ -3837,7 +3837,8 @@ Cell[BoxData[
  RowBox[{
   RowBox[{
   "$TexInitLatexClassCode", "=", 
-   "\"\<\\\\documentclass[10pt,a4paper]{article}\>\""}], ";"}]], "Input",
+   "\"\<\\\\documentclass[border=2pt,varwidth]{standalone}\>\""}], 
+  ";"}]], "Input",
  InitializationCell->True],
 
 Cell[BoxData[
@@ -3845,9 +3846,9 @@ Cell[BoxData[
   RowBox[{"$TexInitLatexPackages", "=", 
    RowBox[{"{", 
     RowBox[{
-    "\"\<{amssymb}\>\"", ",", " ", "\"\<{amsmath}\>\"", ",", " ", 
-     "\"\<{amsthm}\>\"", ",", " ", "\"\<{latexsym}\>\""}], "}"}]}], 
-  ";"}]], "Input",
+    "\"\<{standalone}\>\"", ",", "\"\<{amssymb}\>\"", ",", " ", 
+     "\"\<{amsmath}\>\"", ",", " ", "\"\<{amsthm}\>\"", ",", " ", 
+     "\"\<{latexsym}\>\""}], "}"}]}], ";"}]], "Input",
  InitializationCell->True],
 
 Cell[BoxData[

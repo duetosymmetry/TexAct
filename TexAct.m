@@ -628,10 +628,10 @@ $TexTmpDirectory=$TemporaryDirectory;
 $LatexExecutable="pdflatex";
 
 
-$TexInitLatexClassCode="\\documentclass[10pt,a4paper]{article}";
+$TexInitLatexClassCode="\\documentclass[border=2pt,varwidth]{standalone}";
 
 
-$TexInitLatexPackages={"{amssymb}", "{amsmath}", "{amsthm}", "{latexsym}"};
+$TexInitLatexPackages={"{standalone}","{amssymb}", "{amsmath}", "{amsthm}", "{latexsym}"};
 
 
 $TexInitLatexExtraCode={};
