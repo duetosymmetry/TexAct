@@ -3830,7 +3830,10 @@ Cell[BoxData[{
   RowBox[{"$TexTmpDirectory", "=", "$TemporaryDirectory"}], 
   ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"$LatexExecutable", "=", "\"\<pdflatex\>\""}], ";"}]}], "Input",
+  RowBox[{"$LatexExecutable", ":=", 
+   RowBox[{"ReadList", "[", 
+    RowBox[{"\"\<!$SHELL -l -c 'which pdflatex'\>\"", ",", "String"}], 
+    "]"}]}], ";"}]}], "Input",
  InitializationCell->True],
 
 Cell[BoxData[

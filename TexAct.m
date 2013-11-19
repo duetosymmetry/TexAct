@@ -625,7 +625,7 @@ Protect[latextextwidth];
 
 $TexDirectory=$TemporaryDirectory;
 $TexTmpDirectory=$TemporaryDirectory;
-$LatexExecutable="pdflatex";
+$LatexExecutable:=ReadList["!$SHELL -l -c 'which pdflatex'",String];
 
 
 $TexInitLatexClassCode="\\documentclass[border=2pt,varwidth]{standalone}";
