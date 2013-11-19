@@ -3857,7 +3857,7 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{
   RowBox[{"$TexInitLatexExtraCode", "=", 
-   RowBox[{"{", "}"}]}], ";"}]], "Input",
+   RowBox[{"{", "\"\<\\\\pdfminorversion=3\>\"", "}"}]}], ";"}]], "Input",
  InitializationCell->True],
 
 Cell[BoxData[
@@ -4357,8 +4357,8 @@ Cell[BoxData[
    RowBox[{"Module", "[", 
     RowBox[{
      RowBox[{"{", 
-      RowBox[{"TexOut", ",", "errorpos"}], "}"}], ",", "\[IndentingNewLine]", 
-     
+      RowBox[{"TexOut", ",", "errorpos", ",", "result"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
      RowBox[{
       RowBox[{"SetDirectory", "[", "$TexDirectory", "]"}], ";", 
       "\[IndentingNewLine]", 
@@ -4393,12 +4393,14 @@ Cell[BoxData[
           RowBox[{
           "\"\<Opening file: \>\"", ",", " ", "file", ",", "$TexViewExt"}], 
           "]"}], ";", "\[IndentingNewLine]", 
-         RowBox[{"SystemOpen", "[", 
-          RowBox[{"StringJoin", "[", 
-           RowBox[{"file", ",", "$TexViewExt"}], "]"}], "]"}], ";", 
+         RowBox[{"result", "=", 
+          RowBox[{"Import", "[", 
+           RowBox[{"StringJoin", "[", 
+            RowBox[{"file", ",", "$TexViewExt"}], "]"}], "]"}]}], ";", 
          "\[IndentingNewLine]", 
-         RowBox[{"ResetDirectory", "[", "]"}], ";"}], ",", 
-        "\[IndentingNewLine]", 
+         RowBox[{"ResetDirectory", "[", "]"}], ";", "\[IndentingNewLine]", 
+         RowBox[{"result", "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
         RowBox[{
          RowBox[{"errorpos", "=", 
           RowBox[{"Position", "[", 

@@ -634,7 +634,7 @@ $TexInitLatexClassCode="\\documentclass[border=2pt,varwidth]{standalone}";
 $TexInitLatexPackages={"{standalone}","{amssymb}", "{amsmath}", "{amsthm}", "{latexsym}"};
 
 
-$TexInitLatexExtraCode={};
+$TexInitLatexExtraCode={"\\pdfminorversion=3"};
 
 
 TexInitLatexCode[]:=StringJoin[$TexInitLatexClassCode,StringJoin[StringJoin["\\usepackage",#,"\n"]&/@$TexInitLatexPackages],StringJoin[StringJoin[#,"\n"]&/@$TexInitLatexExtraCode]]
@@ -740,7 +740,7 @@ WriteString[outfile,"\n\\immediate\\write0{TexActFinished}
 Close[outfile];];
 
 
-TexView[texstr_String,file_String:"TexActView"]:=Module[{TexOut,errorpos},
+TexView[texstr_String,file_String:"TexActView"]:=Module[{TexOut,errorpos,result},
 SetDirectory[$TexDirectory];
 TexWriteFile[texstr,StringJoin[file,".tex"]];
 TexOut=ReadList[StringJoin["!"<>$LatexExecutable<>" ",file,".tex"],String];
@@ -749,8 +749,9 @@ If[Length@Position[TexOut,"TexActFinished",1,1]==1,
 SetDirectory[$TexDirectory];
 Print["Typesetting OK."];
 Print["Opening file: ", file,$TexViewExt];
-SystemOpen[StringJoin[file,$TexViewExt]];
-ResetDirectory[];,
+result=Import[StringJoin[file,$TexViewExt]];
+ResetDirectory[];
+result[[1]],
 errorpos=Position[TexOut,str_String?(StringMatchQ[#,StartOfString ~~ "!"~~___]&)];
 If[Length@errorpos>0,
 Print["Tex Error:\n",Sequence@@Drop[TexOut,First@First@errorpos-1]],
